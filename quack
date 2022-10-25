@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# USER CONFIG
+TOKEN="token" # Edit with your Duck DNS token
+DOMAIN="domain" # Edit with your Duck DNS domain
+
+# I'm online?
+wget -q --spider "http://208.69.38.205"
+if [ $? -eq 0 ]; then
+  # I'm online. Check if IP was changed.
+  CURRENT_IP=`curl "http://icanhazip.com/"`
+  LAST_IP=`cat "/tmp/last_ip"`
+  if [ "${CURRENT_IP}" != "${LAST_IP}" ]; then
+    # IP was changed. Update IP in RAM
+    touch "/tmp/last_ip"
+    echo "${CURRENT_IP}" > "/tmp/last_ip"
+    # Send new IP at the best DDNS Server
+    echo url="https://www.duckdns.org/update?domains=${DOMAIN}&token=${TOKEN}&ip=${CURRENT_IP}" | curl -k -o "/dev/null" -K -
+  fi
+fi
