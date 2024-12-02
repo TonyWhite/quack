@@ -5,7 +5,7 @@ TOKEN="token" # Edit with your Duck DNS token
 DOMAIN="domain" # Edit with your Duck DNS domain
 
 # I'm online?
-wget -q --spider "http://208.69.38.205"
+ping -c 1 8.8.8.8
 if [ $? -eq 0 ]; then
   # I'm online. Check if IP was changed.
   CURRENT_IP=`curl "http://icanhazip.com/"`
