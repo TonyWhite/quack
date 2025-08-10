@@ -9,7 +9,7 @@ Bash script for Duck DNS
 * 🤓 Nerd friendly: `/tmp/last_ip` stores IP in plaintext
 * 🔒 Privacy friendly: check the "online status" with Open DNS
 * 👍 Simple IP detection with icanhazip.com
-* 💪 Robust: I don't think this script needs compatibility updates (except for IPV6, than 'curl -6' is the only thing to edit)
+* 💪 Robust: I don't think this script needs compatibility updates (except for IPV6, then 'curl -6' is the only thing to edit)
 
 ## Setup
 
